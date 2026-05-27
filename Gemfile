@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+
+# front end gems
+gem "simple_form"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -55,5 +59,5 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-gem 'rspec-rails', group: [ :test ]
-gem 'rails-controller-testing', group: [ :test ]
+gem "rspec-rails", group: [ :test ]
+gem "rails-controller-testing", group: [ :test ]
