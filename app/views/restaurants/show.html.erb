@@ -1,17 +1,29 @@
 
-  <div class="card p-3 my-2">
-    <h1><%= @restaurant.name %></h1>
-    <p><%= @restaurant.category %></p>
-    <p><%= @restaurant.phone_number %></p>
-    <p><%= @restaurant.address %></p>
-  </div>
+<%= render @restaurant %>
+<%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "my-3 btn btn-secondary" %>
 
-  <%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "my-3 btn btn-secondary" %>
-
-  <h2>Reviews</h2>
-  <% @restaurant.reviews.each do |review| %>
-  <div class="card p-4 pb-1 my-3">
-    <p>Raiting: <%= review.rating %></p>
-    <p><%= review.content %></p>
-  </div>
-  <% end %>
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+<div class="card p-4 pb-1 my-3">
+  <p>
+    <% if review.rating == 0 %>
+      <% 5.times do %> <i class="fa-regular fa-star"></i> <%end %>
+    <% elsif review.rating == 1 %>
+      <i class="fa-solid fa-star"></i>
+      <% 4.times do %> <i class="fa-regular fa-star"></i> <%end %>
+    <% elsif review.rating == 2 %>
+      <% 2.times do %> <i class="fa-solid fa-star"></i> <%end %>
+      <% 3.times do %> <i class="fa-regular fa-star"></i> <%end %>
+    <% elsif review.rating == 3 %>
+      <% 3.times do %> <i class="fa-solid fa-star"></i><% end %>
+      <% 2.times do %> <i class="fa-regular fa-star"></i><% end %>
+    <% elsif review.rating == 4 %>
+      <% 4.times do %> <i class="fa-solid fa-star"></i> <%end %>
+      <i class="fa-regular fa-star"></i>
+    <% elsif review.rating == 5 %>
+      <% 5.times do %> <i class="fa-solid fa-star"></i> <%end %>
+    <%end %>
+  </p>
+  <p><%= review.content %></p>
+</div>
+<% end %>
