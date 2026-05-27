@@ -25,6 +25,12 @@
   </head>
 
   <body>
+    <nav class="navbar p-2" style="background-color: #e3f2fd;" data-bs-theme="light">
+      <form class="container-fluid justify-content-end">
+        <%= link_to "All Restaurants", restaurants_path, class: "btn btn-outline-primary me-4 my-2" %>
+        <%= link_to "Add New Restaurant", new_restaurant_path, class: "btn btn-outline-primary me-4" %>
+      </form>
+    </nav>
     <%= yield %>
   </body>
 </html>
