@@ -1,13 +1,10 @@
-<div class="container p-5">
-  <div>
-    <h1 class="mb-4">Restaurants List</h1>
-    <% @restaurants.each do |restaurant| %>
-    <div class="card p-3 my-2">
-      <h2><%= restaurant.name %></h2>
-      <p><%= restaurant.category %></p>
-      <p><%= restaurant.phone_number %></p>
-      <p><%= restaurant.address %></p>
-    </div>
-    <% end %>
+
+  <h1 class="mb-4">Restaurants</h1>
+  <% @restaurants.each do |restaurant| %>
+  <div class="card p-3 my-2">
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant), class: "restaurant-name"%></h2>
+    <p><%= restaurant.category %></p>
+    <p><%= restaurant.phone_number %></p>
+    <p><%= restaurant.address %></p>
   </div>
-</div>
+  <% end %>
