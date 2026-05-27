@@ -1,8 +1,15 @@
 
 <%= render @restaurant %>
-<%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "my-3 btn btn-secondary" %>
+<%# <%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "my-3 btn btn-secondary" %>
 
-<h2>Reviews</h2>
+<h3 class="mt-5">Write a review</h3>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :rating, :collection => [ 0, 1, 2, 3, 4, 5 ] %>
+    <%= f.input :content %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
+<h3 class="mt-5">Reviews</h3>
 <% @restaurant.reviews.each do |review| %>
 <div class="card p-4 pb-1 my-3">
   <p>
